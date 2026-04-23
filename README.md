@@ -1,151 +1,97 @@
-# 🏢 Sistema de Gestión Triple AAA
+# Software-TripleAAA
 
-## 📋 Descripción del Proyecto
+Aplicación de escritorio en Java Swing que simula la gestión de clientes y facturas de una empresa de servicios públicos. Proyecto académico desarrollado en NetBeans con persistencia en archivos de texto plano.
 
-**Software Triple AAA** es un sistema de gestión integral desarrollado en Java que permite administrar clientes y facturas para una empresa de servicios públicos. El sistema proporciona una interfaz gráfica intuitiva para el registro, consulta y gestión de información de clientes y sus respectivas facturas de servicios.
+![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=openjdk&logoColor=white)
+![Swing](https://img.shields.io/badge/Swing-F80000?style=for-the-badge&logo=java&logoColor=white)
+![NetBeans](https://img.shields.io/badge/NetBeans-1B6AC6?style=for-the-badge&logo=apachenetbeanside&logoColor=white)
+![Ant](https://img.shields.io/badge/Apache%20Ant-A81C7D?style=for-the-badge&logo=apacheant&logoColor=white)
 
-## 🎯 Propósito
+## Descripción del proyecto
 
-Este proyecto tiene como objetivo principal facilitar la gestión administrativa de una empresa de servicios Triple AAA, automatizando los procesos de:
+Sistema administrativo para una empresa ficticia de servicios públicos "Triple AAA" que automatiza el registro y consulta de clientes y facturas. Es un proyecto académico (no productivo) que practica el patrón MVC, interfaces Swing y el manejo de archivos planos como mecanismo de persistencia.
 
-- ✅ Registro de clientes con información personal y de ubicación
-- ✅ Gestión de facturas de servicios públicos
-- ✅ Control de estratos socioeconómicos
-- ✅ Administración de datos por barrios y municipios
-- ✅ Almacenamiento persistente en archivos de texto
+## Funcionalidades principales
 
-## 🚀 Funcionalidades Principales
+### Autenticación
 
-### 🔐 Sistema de Autenticación
-- **Login seguro**: Sistema de inicio de sesión para acceder al sistema
-- **Control de acceso**: Verificación de credenciales de usuario
+- Ventana de login con verificación de credenciales antes de acceder al menú principal.
 
-### 👥 Gestión de Clientes
-- **Registro de clientes**: Captura de información personal completa
-  - Número de referencia único
-  - Cédula de identidad
-  - Nombres y apellidos
-  - Ubicación (municipio y barrio)
-  - Género (Masculino, Femenino, Otros)
-  - Estrato socioeconómico (1-6)
+### Gestión de clientes
 
-- **Validación de datos**: Verificación de información antes del registro
-- **Almacenamiento**: Persistencia de datos en archivo `Clientes.txt`
+- Registro con número de referencia, cédula, nombres, apellidos, municipio, barrio, género y estrato socioeconómico (1-6).
+- Validación de campos antes de guardar.
+- Persistencia en `Clientes.txt` con separador `::`.
 
-### 🧾 Gestión de Facturas
-- **Registro de facturas**: Creación de facturas de servicios
-  - Número de factura único
-  - Póliza de seguro
-  - NIT o Cédula del cliente
-  - Código de recorrido
-  - Estrato del predio (1-5)
-  - Barrio de facturación
-  - Clasificación del predio (Individual, Colectivo, Multifamiliar, Comercial, Industrial, Servicios, Rural)
-  - Número de unidades del predio (1-10)
+### Gestión de facturas
 
-- **Barrios disponibles**: san jose, la victoria, salvador, villa carolina
-- **Almacenamiento**: Persistencia de datos en archivo `Factura.txt`
+- Alta de facturas con número, póliza, NIT o cédula del cliente, código de recorrido, estrato del predio (1-5), barrio y clasificación (Individual, Colectivo, Multifamiliar, Comercial, Industrial, Servicios, Rural).
+- Número de unidades del predio (1-10).
+- Barrios soportados: san jose, la victoria, salvador, villa carolina.
+- Persistencia en `Factura.txt` con separador `::`.
 
-### 🎮 Menú Principal
-- **Navegación intuitiva**: Acceso rápido a todas las funcionalidades
-- **Interfaz amigable**: Diseño simple y fácil de usar
+### Menú principal
 
-## 🛠️ Tecnologías Utilizadas
+- Navegación entre módulos de clientes y facturas tras autenticarse.
 
-- **Lenguaje**: Java
-- **GUI**: Java Swing para la interfaz gráfica
-- **IDE**: NetBeans (proyecto NetBeans nativo)
-- **Persistencia**: Archivos de texto plano (.txt)
-- **Arquitectura**: Patrón MVC (Modelo-Vista-Controlador)
+## Stack
 
-## 📁 Estructura del Proyecto
+- Lenguaje: Java SE
+- GUI: Swing (archivos `.java` y `.form` generados por el editor de NetBeans)
+- Arquitectura: MVC (`modelo/`, `vista/`, `controlador/`)
+- Build: Apache Ant (`build.xml`) con configuración de NetBeans en `nbproject/`
+- Persistencia: archivos de texto plano (sin base de datos)
 
-```
-src/
-├── modelo/                    # Modelos de datos
-│   ├── Cliente.java          # Clase modelo para clientes
-│   ├── Factura.java          # Clase modelo para facturas
-│   └── Principal.java        # Clase principal del sistema
-├── vista/                    # Interfaces gráficas
-│   ├── FrmLogin.java/.form   # Ventana de inicio de sesión
-│   ├── FrmMenu.java/.form    # Menú principal
-│   ├── FrmClientes.java/.form # Gestión de clientes
-│   └── FrmFacturas.java/.form # Gestión de facturas
-├── controlador/              # Lógica de negocio
-│   ├── Ccliente.java        # Controlador de clientes
-│   └── Ffactura.java        # Controlador de facturas
-└── imagenes/                 # Recursos gráficos
-    ├── candado.jpg          # Ícono de seguridad
-    ├── clientes.png         # Ícono de clientes
-    ├── triplea.png          # Logo de la empresa
-    └── imagen de una factura normal con fondo transparente.png
-```
+## Requisitos previos
 
-## 📊 Archivos de Datos
+- JDK 8 o superior
+- NetBeans IDE (recomendado) o cualquier IDE compatible con proyectos Ant de Java
 
-- **`Clientes.txt`**: Almacena información de clientes en formato separado por `::`
-- **`Factura.txt`**: Almacena información de facturas en formato separado por `::`
+## Instalación
 
-## 🔧 Instalación y Ejecución
-
-### Requisitos Previos
-- Java Development Kit (JDK) 8 o superior
-- NetBeans IDE (recomendado) o cualquier IDE compatible con Java
-
-### Pasos para Ejecutar
-1. **Clonar el repositorio**:
-   ```bash
-   git clone https://github.com/JeanCaicedo/Software-TripleAAA.git
-   ```
-
-2. **Abrir en NetBeans**:
-   - Abrir NetBeans IDE
-   - File → Open Project
-   - Seleccionar la carpeta del proyecto
-
-3. **Compilar y ejecutar**:
-   - Clic derecho en el proyecto → Build
-   - Ejecutar la clase `Principal.java`
-
-### Ejecución desde línea de comandos
 ```bash
-# Compilar
-javac -d build src/modelo/*.java src/vista/*.java src/controlador/*.java
+git clone https://github.com/JeanCaicedo/Software-TripleAAA.git
+cd Software-TripleAAA
+```
 
-# Ejecutar
+## Ejecución
+
+### Desde NetBeans
+
+1. `File > Open Project` y seleccionar la carpeta del repositorio.
+2. Clic derecho en el proyecto y `Build`.
+3. Ejecutar la clase `modelo.Principal`.
+
+### Desde línea de comandos
+
+```bash
+javac -d build src/modelo/*.java src/vista/*.java src/controlador/*.java
 java -cp build modelo.Principal
 ```
 
-## 👨‍💻 Uso del Sistema
+## Estructura del proyecto
 
-1. **Inicio de sesión**: Ingrese sus credenciales en la ventana de login
-2. **Menú principal**: Navegue entre las opciones disponibles
-3. **Gestión de clientes**: Registre nuevos clientes con toda su información
-4. **Gestión de facturas**: Cree facturas asociadas a los servicios prestados
-5. **Consulta de datos**: Los datos se almacenan automáticamente en archivos de texto
+```
+src/
+├── modelo/                   # Entidades y clase principal
+│   ├── Cliente.java
+│   ├── Factura.java
+│   └── Principal.java
+├── vista/                    # Formularios Swing
+│   ├── FrmLogin.java / .form
+│   ├── FrmMenu.java / .form
+│   ├── FrmClientes.java / .form
+│   └── FrmFacturas.java / .form
+├── controlador/              # Controladores MVC
+│   ├── Ccliente.java
+│   └── Ffactura.java
+└── imagenes/                 # Recursos gráficos
+Clientes.txt                  # Persistencia de clientes
+Factura.txt                   # Persistencia de facturas
+build.xml                     # Configuración Ant
+nbproject/                    # Configuración NetBeans
+```
 
-## 🤝 Contribuir
+## Autor
 
-Las contribuciones son bienvenidas. Para contribuir:
-
-1. Fork del repositorio
-2. Crear una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`)
-3. Commit de tus cambios (`git commit -m 'Agregar nueva funcionalidad'`)
-4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
-5. Crear un Pull Request
-
-## 📝 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
-
-## 👥 Autores
-
-- **Jean Caicedo** - *Desarrollo principal* - [@JeanCaicedo](https://github.com/JeanCaicedo)
-
-## 📞 Soporte
-
-Si tienes alguna pregunta o problema, por favor crea un [issue](https://github.com/JeanCaicedo/Software-TripleAAA/issues) en el repositorio.
-
----
-
-⭐ Si este proyecto te ha sido útil, no olvides darle una estrella al repositorio.
+Jean Caicedo — [@JeanCaicedo](https://github.com/JeanCaicedo)
